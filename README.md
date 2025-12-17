@@ -51,7 +51,7 @@ uv run main.py \
   --figsize 8,20 \
   --output out/LCO_STO_LiF_mix_auto.png
 
-# 2) 7:3 で合成したプロファイルをPNGで出力（元のプロファイルと合成プロファイル両方をプロット）
+# 3) 7:3 で合成したプロファイルをPNGで出力（元のプロファイルと合成プロファイル両方をプロット）
 uv run mix.py \
   cif/LiCoO2.cif cif/SrTiO3.cif \
   --fractions 0.7 0.3 \
@@ -63,7 +63,7 @@ uv run mix.py \
   --mode standard \
   --output out/LCO_STO_7_3_mix.png
 
-# 3) 7:3 で合成したプロファイルをPNGで出力(合成プロファイルのみをプロット)
+# 4) 7:3 で合成したプロファイルをPNGで出力(合成プロファイルのみをプロット)
 uv run mix.py \
   cif/LiCoO2.cif cif/SrTiO3.cif \
   --fractions 0.7 0.3 \
@@ -87,7 +87,7 @@ uv run mix.py \
   --mode mix \
   --output out/LCO_STO_7_3_mix.csv
 
-# 4) 分率を 0.1 刻みで全探索し、各組み合わせを自動命名で保存(合成プロファイルのみをプロット)
+# 6) 分率を 0.1 刻みで全探索し、各組み合わせを自動命名で保存(合成プロファイルのみをプロット)
 uv run mix.py \
   cif/LiCoO2.cif cif/SrTiO3.cif cif/LiF.cif \
   --fractions-auto \
@@ -100,7 +100,7 @@ uv run mix.py \
   --mode mix \
   --output out/LCO_STO_LiF_all.png
 
-# 5) 分率を 0.1 刻みで全探索し、各組み合わせを自動命名でcsvに保存(合成プロファイルのみをプロット)
+# 7) 分率を 0.1 刻みで全探索し、各組み合わせを自動命名でcsvに保存(合成プロファイルのみをプロット)
 uv run mix.py \
   cif/LiCoO2.cif cif/SrTiO3.cif cif/LiF.cif \
   --fractions-auto \
@@ -113,12 +113,12 @@ uv run mix.py \
   --mode mix \
   --output out/LCO_STO_LiF_mix_auto.csv
 
-# 5) 保存済みプロファイルを別形式へ変換（CSV→Parquet）
+# 8) 保存済みプロファイルを別形式へ変換（CSV→Parquet）
 uv run convert.py \
   out/LCO_STO_7_3_mix.csv \
   --output out/LCO_STO_7_3_mix.parquet
 
-# 6) CIF から計算して JSON へ保存
+# 9) CIF から計算して JSON へ保存
 uv run convert.py \
   cif/LiCoO2.cif \
   --wavelength-preset CuKa \
