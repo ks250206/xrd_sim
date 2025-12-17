@@ -1,0 +1,49 @@
+[project]
+name = "xrd-sim"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["pymatgen>=2025.10.7", "matplotlib>=3.9.2", "pyarrow>=16.0.0"]
+
+[project.optional-dependencies]
+dev = ["ty", "ruff"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+extend-include = ["*.py"]
+respect-gitignore = true
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C90", # mccabe complexity
+    "UP",  # pyupgrade
+    "ANN", # flake8-annotations
+    "D",   # pydocstyle
+    "S",   # flake8-bandit
+    "SIM", # flake8-simplify
+    "T20", # flake8-print/printf-formatting
+    "Q",   # flake8-quotes
+    "PL",  # pylint-like checks
+    "RUF", # ruff-specific
+]
+ignore = []
+fixable = ["ALL"]
+unfixable = ["S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*" = ["S101", "S311"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+docstring-code-format = true
+skip-magic-trailing-comma = false
+preview = true
